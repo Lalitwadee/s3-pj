@@ -4,7 +4,7 @@ variable "region" {
 }
 
 variable "account_id" {
-    default = "<account_id>"
+    default = "747913987992"
 }
 
 variable "vpc-name" {
@@ -13,15 +13,16 @@ variable "vpc-name" {
 
 variable "bucket-name" {
     type = string
-    default = "bucket-dev"
+    default = "bucket-dev65"
 }
 
 variable "iam-user" {
     default = "rayrai"
 }
 
+
 variable "ap-name" {
-    default = "sts34"
+    default = "rayrai-ap"
 }
 
 variable "gw-name" {
