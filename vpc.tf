@@ -16,6 +16,7 @@ resource "aws_vpc" "prod-vpc" {
     "Name" = "${var.vpc-name}"
   }
 }
+
 #------------------------------------------------------------------- Subnets
 
 #- Public Subnet -#
