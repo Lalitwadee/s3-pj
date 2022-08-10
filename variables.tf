@@ -16,6 +16,10 @@ variable "iam-user" {
     default = "rayrai"
 }
 
+variable "ap-name" {
+    default = "sts34"
+}
+
 variable "gw-name" {
   default = "Gateway-Dev"
 }
