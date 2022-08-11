@@ -3,6 +3,10 @@ variable "region" {
     default = "ap-southeast-1"
 }
 
+variable "account_id" {
+    default = "<account_id>"
+}
+
 variable "vpc-name" {
   default = "Dev-VPC"
 }
