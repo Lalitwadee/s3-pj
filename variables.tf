@@ -3,10 +3,6 @@ variable "region" {
     default = "ap-southeast-1"
 }
 
-variable "account_id" {
-    default = "747913987992"
-}
-
 variable "vpc-name" {
   default = "Dev-VPC"
 }
@@ -20,6 +16,9 @@ variable "iam-user" {
     default = "rayrai"
 }
 
+variable "iam-role" {
+    default = "ray"
+}
 
 variable "ap-name" {
     default = "rayrai-ap"
