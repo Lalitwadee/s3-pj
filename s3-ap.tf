@@ -1,7 +1,7 @@
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------
-# TEST : (Upload through accesspoint -> aws s3 cp /Users/rari3/Downloads/2.png s3://arn:aws:s3:us-east-1:747913987992:accesspoint/ap-ray/2.png
-# TEST  : (Download File ) aws s3 cp s3://arn:aws:s3:us-east-1:747913987992:accesspoint/ap-ray/1.png /Users/rari3/Downloads/1.png
+# TEST : (Upload through accesspoint -> aws s3 cp /Users/rari3/Downloads/2.png s3://arn:aws:s3:ap-southeast-1:747913987992:accesspoint/rayrai-ap/2.png
+# TEST  : (Download File ) aws s3 cp s3://arn:aws:s3:ap-southeast-1:747913987992:accesspoint/rayrai-ap/1.png /Users/rari3/Downloads/1.png
 # ----------------------------------------------------------------------------------------------------------------------------------------------
 
 resource "aws_s3_access_point" "user-ap" {
@@ -29,7 +29,8 @@ resource "aws_s3control_access_point_policy" "ap-policy" {
     {
         "Effect": "Allow",
         "Principal": {
-            "AWS": "arn:aws:iam::${var.account_id}:user/${var.iam-user}"
+            "AWS": "${aws_iam_user.iam-rayrai.arn}"
+            "AWS": "${aws_iam_role.iam-ray.arn}"
         },
         "Action": "s3:PutObject",
         "Resource": "${aws_s3_access_point.user-ap.arn}/object/*"
