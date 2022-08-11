@@ -30,7 +30,7 @@ resource "aws_cloudtrail" "awscloudtrail-s3" {
   # select data event
 
   advanced_event_selector {
-    name = "Log PutObject and Delete Object events for two S3 buckets"
+    name = "Log PutObject and Delete Object events for S3 buckets"
 
     field_selector {
       field  = "eventCategory"
@@ -38,7 +38,8 @@ resource "aws_cloudtrail" "awscloudtrail-s3" {
     }
     field_selector {
       field  = "resources.type"
-      equals = ["AWS::S3::Object"]
+      #equals = ["AWS::S3::Object"]
+      equals = ["AWS::S3::AccessPoint"]
     }
     field_selector {
       field  = "resources.ARN"
@@ -46,9 +47,9 @@ resource "aws_cloudtrail" "awscloudtrail-s3" {
       //starts_with = "arn:aws:s3:::bucket-dev65/event-folder/"
     }
     field_selector {
-      field  = "resources.ARN"
+      field  = "eventName"
       equals = [
-        "PutObject", 
+        "PutObject",
         "DeleteObject"
       ]
     }
