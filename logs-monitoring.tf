@@ -38,12 +38,13 @@ resource "aws_cloudtrail" "awscloudtrail-s3" {
     }
     field_selector {
       field  = "resources.type"
-      #equals = ["AWS::S3::Object"]
-      equals = ["AWS::S3::AccessPoint"]
+      equals = ["AWS::S3::Object"]
+      //equals = ["AWS::S3::AccessPoint"]
     }
     field_selector {
       field  = "resources.ARN"
-      starts_with = ["${aws_s3_bucket.s3.arn}/${aws_s3_bucket_object.event-folder.key}"]
+      starts_with = ["${aws_s3_bucket.s3.arn}/"]
+      //starts_with = ["${aws_s3_bucket.s3.arn}/${aws_s3_bucket_object.event-folder.key}"]
       //starts_with = "arn:aws:s3:::bucket-dev65/event-folder/"
     }
     field_selector {
