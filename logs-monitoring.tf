@@ -42,7 +42,8 @@ resource "aws_cloudtrail" "awscloudtrail-s3" {
     }
     field_selector {
       field  = "resources.ARN"
-      starts_with = "${aws_s3_bucket.s3.arn}/${aws_s3_bucket_object.key}"
+      starts_with = ["${aws_s3_bucket.s3.arn}/${aws_s3_bucket_object.event-folder.key}"]
+      //starts_with = "arn:aws:s3:::bucket-dev65/event-folder/"
     }
     field_selector {
       field  = "resources.ARN"
